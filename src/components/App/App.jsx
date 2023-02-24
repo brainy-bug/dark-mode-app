@@ -5,30 +5,30 @@ import data from "../../data/data";
 import Article from "../Article/Article";
 
 function App() {
-  const [theme, setTheme] = useState("");
+  const getStorageItem = () => {
+    let theme;
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      theme = savedTheme;
+    } else {
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        theme = "dark-theme";
+      } else {
+        theme = "light-theme";
+      }
+    }
+    return theme;
+  };
+
+  const [theme, setTheme] = useState(getStorageItem());
 
   const handleToggle = () => {
     if (theme === "light-theme") setTheme("dark-theme");
     else setTheme("light-theme");
   };
-  useEffect(() => {
-    // Check local storage for a saved theme
-    const savedTheme = localStorage.getItem("theme");
-    console.log(savedTheme);
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      // If no theme is saved, use the user's operating system setting
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
-        setTheme("dark-theme");
-      } else {
-        setTheme("light-theme");
-      }
-    }
-  }, []);
 
   useEffect(() => {
     // Save the current theme to local storage

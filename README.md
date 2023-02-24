@@ -11,4 +11,5 @@ You can see a live demo of this project at [https://app.netlify.com/sites/yk-dar
 ``` npm install ```
 3.  Start the development server:
 ``` npm run dev ```
+----------------------------------
 Open your browser and navigate to [http://127.0.0.1:5173/](http://127.0.0.1:5173/)

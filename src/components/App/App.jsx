@@ -42,7 +42,7 @@ function App() {
     <main>
       <nav>
         <div className='nav-center'>
-          <h1>overreacted</h1>
+          <h1>yinka.jsx</h1>
           <button className='btn' onClick={handleToggle}>
             {theme === "light-theme" ? <FaSun /> : <FaMoon />}
           </button>
